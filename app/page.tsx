@@ -1,5 +1,13 @@
+import MainFrame from "./_components/MainFrame";
 import Navbar from "./_components/Navbar";
 
-export default function Page() {
-    return <Navbar/>
-  }
+const Page = () => {
+  return (
+    <div>
+      <Navbar />
+      <MainFrame />
+    </div>
+  );
+};
+
+export default Page;
