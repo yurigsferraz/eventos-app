@@ -6,7 +6,6 @@ import "react-datepicker/dist/react-datepicker.css";
 export default function EventForm() {
   const [nome, setNome] = useState("");
   const [tipoEventoId, setTipoEventoId] = useState("");
-  const [data, setData] = useState(null);
   const [tipoEventos, setTipoEventos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,7 +30,6 @@ export default function EventForm() {
       const response = await axios.post("https://eventos-backend.vercel.app/events/", {
         nome,
         tipoEventoId: parseInt(tipoEventoId),
-        data: data.toISOString(), // Converter a data para o formato adequado antes de enviar
       });
 
       console.log(response.data);
