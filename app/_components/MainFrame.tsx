@@ -16,7 +16,7 @@ const MainFrame = () => {
             href="/visualizar"
             className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
           >
-            Visualizar Eventos
+            Visualizar Meus Eventos
           </a><a
             href="/tipo"
             className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"

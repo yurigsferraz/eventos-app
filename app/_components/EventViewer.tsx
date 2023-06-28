@@ -1,46 +1,48 @@
-import React from "react";
+"use client"
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+const EventCard = ({ event }) => {
+  return (
+    <div className="bg-white rounded-lg shadow-md p-6 mx-4 my-4 w-64">
+      <div className="mb-4 ">
+        <p className="text-xl font-bold">Nome:</p>
+        <p className="text-gray-600">{event.nome}</p>
+      </div>
+      <div className="mb-4">
+        <p className="text-xl font-bold">Tipo:</p>
+        <p className="text-gray-600">{event.tipoEvento.nome}</p>
+      </div>
+      <div className="mb-4">
+        <p className="text-xl font-bold">Código:</p>
+        <p className="text-gray-600">{event.tipoEvento.codigo}</p>
+      </div>
+      
+    </div>
+  );
+};
 
 const EventViewer = () => {
-  // Simulando dados de eventos
-  const events = [
-    {
-      id: 1,
-      name: "Evento 1",
-      description: "Descrição do Evento 1",
-      code: "EVNT1",
-      maxAttendees: 50,
-      date: "2023-06-30",
-      time: "10:00",
-    },
-    {
-      id: 2,
-      name: "Evento 2",
-      description: "Descrição do Evento 2",
-      code: "EVNT2",
-      maxAttendees: 100,
-      date: "2023-07-05",
-      time: "14:30",
-    },
-  ];
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/events/');
+      setEvents(response.data);
+    } catch (error) {
+      console.error('Erro ao buscar eventos:', error);
+    }
+  };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-blue-500">
-      <div className="bg-white p-8 rounded shadow">
-        <h1 className="text-2xl font-bold mb-4">Eventos Cadastrados</h1>
+    <div className="flex justify-center items-start h-screen bg-blue-500">
+      <div className="max-w-6xl flex flex-wrap justify-center items-start mx-auto">
         {events.map((event) => (
-          <div
-            key={event.id}
-            className="bg-white p-8 mb-4 rounded shadow"
-          >
-            <h2 className="text-xl font-bold">{event.name}</h2>
-            <p className="text-gray-600">Descrição: {event.description}</p>
-            <p className="text-gray-600">Código: {event.code}</p>
-            <p className="text-gray-600">
-              Máxima Quantidade de Pessoas: {event.maxAttendees}
-            </p>
-            <p className="text-gray-600">Data: {event.date}</p>
-            <p className="text-gray-600">Horário: {event.time}</p>
-          </div>
+          <EventCard key={event.id} event={event} />
         ))}
       </div>
     </div>
@@ -48,3 +50,4 @@ const EventViewer = () => {
 };
 
 export default EventViewer;
+

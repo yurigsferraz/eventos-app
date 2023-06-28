@@ -8,11 +8,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <a href="/" className="text-white font-bold text-lg">EventOS</a>
           </div>
-          <div className="flex">
-            <a href="/about" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">About</a>
-            <a href="/services" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">Services</a>
-            <a href="/contact" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-          </div>
+        
         </div>
       </div>
     </nav>
