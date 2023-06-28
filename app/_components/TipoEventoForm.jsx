@@ -14,7 +14,7 @@ export default function TipoEventoForm() {
 
   const fetchTipoEventos = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/tipo-evento");
+      const response = await axios.get("https://eventos-backend.vercel.app/tipo-evento");
       setTipoEventos(response.data);
     } catch (error) {
       console.error("Erro ao buscar tipoEventos:", error);
@@ -25,7 +25,7 @@ export default function TipoEventoForm() {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/tipo-evento", {
+      const response = await axios.post("https://eventos-backend.vercel.app/tipo-evento", {
         nome,
         codigo,
       });
@@ -41,7 +41,7 @@ export default function TipoEventoForm() {
 
   const handleDelete = async (tipoEventoId) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/tipo-evento/${tipoEventoId}`);
+      const response = await axios.delete(`https://eventos-backend.vercel.app/tipo-evento/${tipoEventoId}`);
       console.log(response.data);
       fetchTipoEventos();
     } catch (error) {

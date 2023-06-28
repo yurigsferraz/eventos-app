@@ -31,7 +31,7 @@ const EventViewer = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/events/');
+      const response = await axios.get('https://eventos-backend.vercel.app/events/');
       setEvents(response.data);
     } catch (error) {
       console.error('Erro ao buscar eventos:', error);

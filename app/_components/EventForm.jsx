@@ -1,10 +1,13 @@
 'use client'
 import { useState, useEffect } from "react";
 import axios from "axios";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function EventForm() {
   const [nome, setNome] = useState("");
   const [tipoEventoId, setTipoEventoId] = useState("");
+  const [data, setData] = useState(null);
   const [tipoEventos, setTipoEventos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -14,7 +17,7 @@ export default function EventForm() {
 
   const fetchTipoEventos = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/tipo-evento");
+      const response = await axios.get("https://eventos-backend.vercel.app/tipo-evento");
       setTipoEventos(response.data);
     } catch (error) {
       console.error("Erro ao obter os tipos de evento:", error);
@@ -26,9 +29,10 @@ export default function EventForm() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:3000/events/", {
+      const response = await axios.post("https://eventos-backend.vercel.app/events/", {
         nome,
-        tipoEventoId : parseInt(tipoEventoId),
+        tipoEventoId: parseInt(tipoEventoId),
+        data: data.toISOString(), // Converter a data para o formato adequado antes de enviar
       });
 
       console.log(response.data);
@@ -62,12 +66,21 @@ export default function EventForm() {
           >
             <option value="">Selecione o tipo de evento</option>
             {tipoEventos.map((tipoEvento) => (
-              <option key={tipoEvento} value={tipoEvento.id}>
+              <option key={tipoEvento.id} value={tipoEvento.id}>
                 {tipoEvento.nome}
               </option>
             ))}
           </select>
         </div>
+        {/* <div className="mb-4">
+          <label className="block">Data:</label>
+          <DatePicker
+            selected={data}
+            onChange={(date) => setData(date)}
+            className="w-full border"
+            dateFormat="dd/MM/yyyy"
+          />
+        </div> */}
         <button
           onClick={handleClick}
           disabled={isLoading}
@@ -76,7 +89,7 @@ export default function EventForm() {
           }`}
         >
           {isLoading ? "Enviando..." : "Enviar"}
-        </button>{" "}
+        </button>
       </div>
     </div>
   );
