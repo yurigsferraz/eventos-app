@@ -29,7 +29,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "app/_components/EventViewer.jsx", "app/_components/EventViewer.jsx", "app/_components/TipoEventoForm.jsx", "app/_components/EventForm.jsx"  ],
   "exclude": [
     "node_modules"
   ]

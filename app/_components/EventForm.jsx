@@ -20,6 +20,7 @@ export default function EventForm() {
     } catch (error) {
       console.error("Erro ao obter os tipos de evento:", error);
       // Trate o erro de forma adequada
+      // aa
     }
   };
 
