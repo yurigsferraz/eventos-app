@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect } from "react";
 import axios from "axios";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function EventForm() {
@@ -72,15 +71,6 @@ export default function EventForm() {
             ))}
           </select>
         </div>
-        {/* <div className="mb-4">
-          <label className="block">Data:</label>
-          <DatePicker
-            selected={data}
-            onChange={(date) => setData(date)}
-            className="w-full border"
-            dateFormat="dd/MM/yyyy"
-          />
-        </div> */}
         <button
           onClick={handleClick}
           disabled={isLoading}
