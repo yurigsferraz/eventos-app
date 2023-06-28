@@ -28,7 +28,7 @@ export default function EventForm() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("https://eventos-backend.vercel.app/events/", {
+      const response = await axios.post("https://eventos-backend.vercel.app/events", {
         nome,
         tipoEventoId: parseInt(tipoEventoId),
       });
