@@ -17,6 +17,11 @@ const MainFrame = () => {
             className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
           >
             Visualizar Eventos
+          </a><a
+            href="/tipo"
+            className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+          >
+            Cadastrar Tipos de Eventos
           </a>
         </div>
       </div>
