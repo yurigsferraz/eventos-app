@@ -8,18 +8,18 @@ const MainFrame = () => {
         <div className="flex flex-col gap-4">
           <a
             href="/cadastro"
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+            className="bg-blue-500 hover:bg-blue-600 text-white text-center py-2 px-4 rounded"
           >
             Cadastrar Eventos
           </a>
           <a
             href="/visualizar"
-            className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+            className="bg-blue-500 hover:bg-blue-600 text-white text-center py-2 px-4 rounded"
           >
             Visualizar Meus Eventos
           </a><a
             href="/tipo"
-            className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+            className="bg-blue-500 hover:bg-blue-600 text-white text-center py-2 px-4 rounded"
           >
             Cadastrar Tipos de Eventos
           </a>
